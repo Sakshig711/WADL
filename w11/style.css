@@ -1,0 +1,26 @@
+body {
+	font-family: Arial, sans-serif;
+	text-align: center;
+	padding: 30px;
+      }
+      
+      input, textarea {
+	width: 300px;
+	padding: 8px;
+	margin: 5px;
+      }
+      
+      button {
+	padding: 10px 20px;
+	margin-top: 10px;
+      }
+      
+      table {
+	margin: auto;
+	border-collapse: collapse;
+	width: 90%;
+      }
+      th, td {
+	padding: 10px;
+      }
+      

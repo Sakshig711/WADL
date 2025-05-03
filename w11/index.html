@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>	
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Registration Form</h2>
+  <form id="registerForm" onsubmit="registerUser(event)">
+    <input type="text" id="name" placeholder="Full Name" required><br>
+    <input type="email" id="email" placeholder="Email" required><br>
+    <input type="text" id="mobile" placeholder="Mobile (10 digits)" pattern="\\d{10}" required><br>
+    <input type="date" id="dob" required><br>
+    <input type="text" id="city" placeholder="City" required><br>
+    <textarea id="address" placeholder="Address" required></textarea><br>
+    <input type="text" id="username" placeholder="Username" required><br>
+    <input type="password" id="password" placeholder="Password" minlength="6" required><br>
+    <button type="submit">Register</button>
+  </form>
+  <p>Already registered? <a href="login.html">Login here</a></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
