@@ -9,7 +9,7 @@ function getWeather() {
       
 	    if (weather) {
 	      result.innerHTML = `
-		<p><strong>City:</strong> ${city}</p>
+		<p>City: ${city}</p>
 		<p><strong>Temperature:</strong> ${weather.temperature}</p>
 		<p><strong>Humidity:</strong> ${weather.humidity}</p>
 		<p><strong>Condition:</strong> ${weather.condition}</p>
