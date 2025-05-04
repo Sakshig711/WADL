@@ -14,10 +14,8 @@
     </div>
     <ul class="list-group" id="taskList"></ul>
   </div>
-
   <script>
-    const tasks = []; // In-memory only — not saved to localStorage
-
+    const tasks = []; 
     function renderTasks() {
       const list = document.getElementById("taskList");
       list.innerHTML = "";
@@ -28,18 +26,14 @@
         list.appendChild(li);
       });
     }
-
     function addTask() {
       const input = document.getElementById("taskInput");
       const text = input.value.trim();
       if (text === "") return;
-
       tasks.push(text);
       input.value = "";
       renderTasks();
     }
-
-    // No renderTasks() on load, since we don't want old tasks
   </script>
 </body>
 </html>
