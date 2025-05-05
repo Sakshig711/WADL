@@ -6,6 +6,7 @@ const users = require('./users.json');
 app.get('/api/users', (req, res) => res.json(users));
 app.listen(5000, () => console.log('Server running on http://localhost:5000'));*/
 
+
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -24,4 +25,3 @@ app.get('/api/users', (req, res) => res.json(users));
 app.listen(5000, () => {
   console.log('Server running on http://localhost:5000');
 });
-

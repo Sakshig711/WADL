@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple To-Do List with AJAX</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+    }
+    .task-item {
+      margin: 10px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 600px;
+    }
+    input[type="text"].task-input {
+      width: 60%;
+    }
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📝 My To-Do List</h2>
+  <input type="text" id="taskInput" placeholder="Enter task">
+  <button onclick="addTask()">Add</button>
+
+  <div id="taskContainer"></div>
+
+  <script>
+    let tasks = [];
+
+    function showTasks() {
+      const container = document.getElementById('taskContainer');
+      container.innerHTML = '';  // Clear existing tasks
+
+      for (let i = 0; i < tasks.length; i++) {
+        container.innerHTML += `
+          <div class="task-item">
+            <input id="task-${i}" value="${tasks[i]}" class="task-input" type="text">
+            <button onclick="updateTask(${i})">Update</button>
+            <button onclick="deleteTask(${i})">Delete</button>
+          </div>
+        `;
+      }
+    }
+
+    function addTask() {
+      const task = document.getElementById('taskInput').value.trim();
+      if (task) {
+        tasks.push(task);
+        document.getElementById('taskInput').value = '';
+        showTasks();
+        saveTasksToServer();
+      }
+    }
+
+    function updateTask(index) {
+  const newText = document.getElementById(`task-${index}`).value;
+  tasks[index] = newText;
+  showTasks();
+  saveTasksToServer();
+}
+
+
+    function deleteTask(index) {
+      tasks.splice(index, 1);
+      showTasks();
+      saveTasksToServer();
+    }
+
+    function saveTasksToServer() {
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', '/saveTasks', true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify({ tasks }));
+    }
+  </script>
+
+</body>
+</html>
