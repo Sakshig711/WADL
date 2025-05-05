@@ -1,24 +1,8 @@
-const express = require("express");
-const fs = require("fs");
-const path = require("path");
-
+const express = require('express');
+const cors = require('cors');
 const app = express();
-const PORT = 3000;
-
-// Serve static frontend files from public/
-app.use(express.static("public"));
-
-// API to get user data
-app.get("/api/users", (req, res) => {
-  fs.readFile("users.json", "utf8", (err, data) => {
-    if (err) {
-      res.status(500).json({ message: "Error reading file" });
-    } else {
-      res.json(JSON.parse(data));
-    }
-  });
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+app.use(cors());
+app.use(express.json());
+const users = require('./users.json');
+app.get('/api/users', (req, res) => res.json(users));
+app.listen(3000, () => console.log('Server running on http://localhost:3000'));

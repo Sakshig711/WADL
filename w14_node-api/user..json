@@ -1,6 +1,6 @@
 [
-	{ "id": 1, "name": "Sakshi Gangurde", "email": "sakshi@example.com" },
-	{ "id": 2, "name": "Shrravani", "email": "sau@example.com" },
-	{ "id": 3, "name": "Ravi", "email": "ravi@example.com" }
+	{ "name": "Alice", "age": 25 },
+	{ "name": "Bob", "age": 30 },
+	{ "name": "Charlie", "age": 28 }
       ]
-      
+	
