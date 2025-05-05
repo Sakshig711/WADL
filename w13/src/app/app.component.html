@@ -1,0 +1,25 @@
+<main class="main">
+	<h1>Welcome to {{ title }}</h1>
+      
+      <div *ngIf="!loggedIn">
+	<h2>Register</h2>
+	<input type="text" [(ngModel)]="regName" placeholder="Name" /><br />
+	<input type="email" [(ngModel)]="regEmail" placeholder="Email" /><br />
+	<input type="password" [(ngModel)]="regPassword" placeholder="Password" /><br />
+	<button (click)="onRegister()">Register</button>
+      
+	<hr />
+      
+	<h2>Login</h2>
+	<input type="email" [(ngModel)]="loginEmail" placeholder="Email" /><br />
+	<input type="password" [(ngModel)]="loginPassword" placeholder="Password" /><br />
+	<button (click)="onLogin()">Login</button>
+      </div>
+      
+      <div *ngIf="loggedIn">
+	<h2>Welcome, {{ userProfile?.name }}!</h2>
+	<p>Email: {{ userProfile?.email }}</p>
+	<button (click)="onLogout()">Logout</button>
+      </div>
+      
+      </main>
